@@ -1,0 +1,27 @@
+{
+  "name": "dia-td3",
+  "version": "1.0.0",
+  "description": "TD3 du cours de développement et intégration d'applications distribuées.",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^1.15.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreimert/dia-td3.git"
+  },
+  "author": "Damien Reimert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreimert/dia-td3/issues"
+  },
+  "homepage": "https://github.com/dreimert/dia-td3#readme"
+}
