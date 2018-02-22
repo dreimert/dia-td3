@@ -19,9 +19,9 @@ GraphQL, c'est un truc développé par Facebook, c'est de plus en plus populaire
 * introspection : le système se décrit lui même. Vous pouvez demander au système de vous décrire ce que vous pouvez faire avec !
 * Auto-documenter : le système contient sa doc.
 * Un IDE WEB trop cool : https://jumplyn.com/api/graphql/i
-* Et cet IDE, il utilise l'introspection. Du coup, vous pouvez avoir de l'auto-completion quand vous construisez une requête en faisant <ctrl> + <espace> !
+* Et cet IDE, il utilise l'introspection. Du coup, vous pouvez avoir de l'auto-completion quand vous construisez une requête en faisant \<ctrl\> + \<espace\> !
 
-Le but si sera de faire un Client Line Interface (CLI) minimaliste pour Jumplyn. Par exemple, un CLI capable de lister les projets et d'avoir des informations dessus. Pareil, si vous voyez des données qui devraient être privées, envoyez moi un message que je patches !
+Le but sera de faire un Client Line Interface (CLI) minimaliste pour Jumplyn. Par exemple, un CLI capable de lister les projets et d'avoir des informations dessus. Pareil, si vous voyez des données qui devraient être privées, envoyez moi un message que je patches !
 
 ## Implémentation
 
@@ -54,9 +54,9 @@ Vos yeux.
 
 Par lire l'introduction http://graphql.org/learn/ et les sections `fields` et `arguments` : http://graphql.org/learn/queries/.
 
-Dans l'IDE de GraphQL de Jumplyn, abusé du <ctrl> + <espace> : https://jumplyn.com/api/graphql/i.
+Dans l'IDE de GraphQL de Jumplyn, abuser du \<ctrl\> + \<espace\> : https://jumplyn.com/api/graphql/i.
 
-Essayer de comprendre le fichier `index.js ` et l'exemple sur statistiques.
+Essayer de comprendre le fichier `index.js` et l'exemple sur statistiques.
 
 ## Ce que je dois retenir
 
@@ -78,7 +78,7 @@ Vous pouvez aussi aller voir du coté de Uber : https://developer.uber.com/
 
 ### Explorer Github
 
-Pour la version 4 de son API, Github a choisi de migrer de REST pour V3 à GraphQL pour la V4. À ce jour en début 2018, REST reste la méthode la plus classique pour fournir une API à un service WEB. Mais GraphQL, qui est principalement développé par Facebook, gagne de plus en plus de terrain comme par exemple avec Github.
+Pour la version 4 de son API, Github a choisi de migrer de REST pour la V3 à GraphQL pour la V4. À ce jour en début 2018, REST reste la méthode la plus classique pour fournir une API à un service WEB. Mais GraphQL, qui est principalement développé par Facebook, gagne de plus en plus de terrain comme par exemple avec Github.
 
 Pour en savoir plus sur REST : https://fr.wikipedia.org/wiki/Representational_state_transfer.
 
