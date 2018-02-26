@@ -1,4 +1,4 @@
-# Dia : TD
+# Dia : TD3
 
 TD3 du cours de développement et intégration d'applications distribuées.
 
@@ -40,6 +40,8 @@ Vérifiez que ça fonctionne :
     npm start statistiques -- -v
 
 Vous pouvez maintenant modifier le fichier `index.js` pour implémenter les fonctions `list` et `projet`.
+
+Vous avez une base qui fonctionne ? Cool ! Maintenant, essayez de calculer le nombre moyen de owners par projets. Et le nombre moyen de owners par projets dans les projets innovants (insal-tc-pi) enseigné par Stéphane Frenot.
 
 Une fois terminé, explorez les APIs et proposez une nouvelle commandes.
 
