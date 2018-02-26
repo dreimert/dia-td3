@@ -44,7 +44,8 @@ require('yargs')
         uri: 'https://jumplyn.com/api/graphql',
         body: {
             query: `{
-              projects {
+              projects(limit: ${argv.limit}) {
+                name
               }
             }`
         },
@@ -53,7 +54,7 @@ require('yargs')
 
     request(options)
     .then((res) => {
-      console.log("Vous croyez pas que je vais tout faire ?");
+      console.info(res.data.projects);
     })
     .catch((err) => {
       console.error("Gloups : ", err.error);
@@ -76,6 +77,9 @@ require('yargs')
         uri: 'https://jumplyn.com/api/graphql',
         body: {
             query: `{
+              project(id: "${argv.id}") {
+                name
+              }
             }`
         },
         json: true // Automatically stringifies the body to JSON
@@ -83,7 +87,7 @@ require('yargs')
 
     request(options)
     .then((res) => {
-      console.log("Vous croyez pas que je vais tout faire ?");
+      console.info(res.data.project);
     })
     .catch((err) => {
       console.error("Gloups : ", err.error);
