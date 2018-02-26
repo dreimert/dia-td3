@@ -44,7 +44,7 @@ require('yargs')
         uri: 'https://jumplyn.com/api/graphql',
         body: {
             query: `{
-              projets {
+              projects {
               }
             }`
         },
