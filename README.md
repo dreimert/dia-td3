@@ -41,6 +41,8 @@ Vérifiez que ça fonctionne :
 
 Vous pouvez maintenant modifier le fichier `index.js` pour implémenter les fonctions `list` et `projet`.
 
+Une fois terminé, explorez les APIs et proposez une nouvelle commandes.
+
 ## Test
 
 Lancer les commandes suivantes :
