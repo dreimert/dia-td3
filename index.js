@@ -111,10 +111,12 @@ require('yargs')
     })
   })
 
-  // Il faut limiter la liste des projets au projet qui ont le label "insal-tc-pi"
+  // Il faut limiter la liste des projets au projet qui ont le label "insal-tc-pi#"
   // Sans documentation ni le vocabulaire, il faut explorer les données à la main pour comprendre
   // Tous les projets / application vont créer leur propre vocabulaire.
   // Par exemple : tweet pour twitter.
+  // Il y a plusieurs méthodes pour récupèrer cette liste.
+  // J'utilise la plus simple ici quand on ne connait pas la structure des données de Jumplyn.
   .command('moyenne-pi', 'Calcule le nombre moyen de membres par projet pour pi', {}, (argv) => {
     if (argv.verbose) console.info(`Exécution de la commande moyenne-pi`)
     let options = {
@@ -122,7 +124,15 @@ require('yargs')
         uri: 'https://jumplyn.com/api/graphql',
         body: {
             query: `{
-              projects(hasLabel: "insal-tc-pi") {
+              projects {
+                label {
+                  isLabel
+                  hasLabelv2 {
+                    label {
+                      isLabel
+                    }
+                  }
+                }
                 users {
                   roles
                 }
@@ -135,11 +145,16 @@ require('yargs')
     request(options)
     .then((res) => {
       //console.info(res.data.projects);
-      let nbProjet = res.data.projects.length;
+      // on ne retient que les projets 'insal-tc-pi'
+      let projets = res.data.projects.filter((projet) => {
+        // projet.label... vérifié que la variable existe.
+        return projet.label && projet.label.hasLabelv2 && projet.label.hasLabelv2.label && projet.label.hasLabelv2.label.isLabel && projet.label.hasLabelv2.label.isLabel.match && projet.label.hasLabelv2.label.isLabel.match(/^insal-tc-pi#/);
+      });
+      let nbProjet = projets.length;
       // La question est qu'est ce qu'un membre ?
       // Si je fais le choix de ne choisir comme membres que les utilisateurs dont le role est 'owner'
       // j'utilise la fonction reduce sur les tableaux : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/reduce
-      let nbOwners = res.data.projects.reduce((somme, project) => {
+      let nbOwners = projets.reduce((somme, project) => {
         // J'utilse filter pour ne concerver que les owners
         // puis je regarde la taille du tableau
         const nbOwners = project.users.filter((user) => {
@@ -152,7 +167,7 @@ require('yargs')
       console.log("Nombre moyen de membres par projet :", nbOwners/nbProjet);
     })
     .catch((err) => {
-      console.error("Gloups : ", err.error);
+      console.error("Gloups : ", err);
       console.log("\n#######################################\n");
       console.log("Vous croyez pas que je vais tout faire ?");
     })
